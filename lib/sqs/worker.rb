@@ -128,7 +128,7 @@ module Sqs
 
       %w(SIGTERM INT).each do |signal|
         trap signal do
-          logger.info "Receive #{signal} signal. Shutting down pool..."
+          logger.info "[SQS] Receive #{signal} signal. Shutting down pool..."
 
           Thread.new do
             @shutdown = true
@@ -136,7 +136,7 @@ module Sqs
             @pool.shutdown
             (@poller_threads || []).map(&:exit)
 
-            logger.info "All done. Exit..."
+            logger.info "[SQS] All done. Exit..."
             Process.exit(0)
           end
         end
