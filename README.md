@@ -1,4 +1,4 @@
-# Simple::Sqs
+# Sqs
 
 This is very simple, pure thread-based implementation of message processor without hard dependencies (only aws, thread, thread_safe gems are used).
 
